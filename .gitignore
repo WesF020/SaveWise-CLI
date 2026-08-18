@@ -24,4 +24,4 @@ hs_err_pid*
 replay_pid*
 
 # Credentials
-src/main/java/resources/config.properties
+SaveWise/src/main/java/resources/config.properties
