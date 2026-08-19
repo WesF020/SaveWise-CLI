@@ -44,7 +44,7 @@ public class Transaction {
 
     @Override
     public String toString(){
-        return String.format("[%d] %s | %s | R$ %.2f | %s | %s," +
+        return String.format("[%d] %s | %s | R$ %.2f | %s | %s,",
                 id, type, description, amount, category, date);
     }
 }

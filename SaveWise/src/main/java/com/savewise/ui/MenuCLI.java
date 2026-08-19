@@ -25,7 +25,12 @@ public class MenuCLI {
 
         while (option != 0){
             printMenu();
-            option = Integer.parseInt(scanner.nextLine());
+            try {
+                option = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid option. Please enter a number: ");
+                option = -1;        // try/catch logic applied; if the user types a String, the system can restart the scanner
+            }
 
             switch(option) {
                 case 1 -> addTransaction();
@@ -82,9 +87,13 @@ public class MenuCLI {
 
     private void deleteTransaction(){
         System.out.println("Enter transaction ID to delete: ");
-        int id = Integer.parseInt(scanner.nextLine());
-        transactionService.deleteTransaction(id);
-        System.out.println("Transaction deleted successfully!");
+        try {
+            int id = Integer.parseInt(scanner.nextLine());
+            transactionService.deleteTransaction(id);
+            System.out.println("Transaction deleted successfully!");
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid ID. Please enter a valid number.");
+        }
     }
 
     private void showBalance(){
